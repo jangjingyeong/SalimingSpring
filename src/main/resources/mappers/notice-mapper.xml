@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeMapper">
+	<resultMap type="kr.co.saliming.notice.domain.Notice" id="noticeResultMap">
+		<id property="noticeNo" 		 column="NOTICE_NO"/>
+		<result property="noticeSubject" column="NOTICE_SUBJECT"/>
+		<result property="noticeContent" column="NOTICE_CONTENT"/>
+		<result property="noticeDate" 	 column="NOTICE_DATE"/>
+		<result property="updateDate" 	 column="UPDATE_DATE"/>
+		<result property="viewCount" 	 column="VIEW_COUNT"/>
+		<result property="noticeFilename" 	column="NOTICE_FILENAME"/>
+		<result property="noticeFilepath" 	column="NOTICE_FILEPATH"/>
+		<result property="noticeFilelength" column="NOTICE_FILELENGTH"/>
+	</resultMap>
+	<insert id="insertNotice">
+		INSERT INTO NOTICE_TBL VALUES(SEQ_NOTICENO.NEXTVAL, #{noticeSubject}, #{noticeContent}, DEFAULT, DEFAULT, DEFAULT, #{noticeFilename}, #{noticeFilepath}, #{noticeFilelength})
+	</insert>
+	<update id="updateNotice">
+		UPDATE NOTICE_TBL SET NOTICE_SUBJECT = #{noticeSubject}, NOTICE_CONTENT = #{noticeContent}, UPDATE_DATE = DEFAULT WHERE NOTICE_NO = #{noticeNo}
+	</update>
+	<delete id="deleteNotice">
+		DELETE FROM NOTICE_TBL WHERE NOTICE_NO = #{noticeNO}
+	</delete>
+	<select id="selectNoticeList" resultMap="noticeResultMap">
+		SELECT * FROM NOTICE_TBL ORDER BY NOTICE_NO DESC
+	</select>
+	<select id="selectOneByNo" resultMap="noticeResultMap">
+		SELECT * FROM NOTICE_TBL WHERE NOTICE_NO = #{noticeNo}
+	</select>
+	<select id="getTotalCount" resultType="_int">
+		SELECT COUNT(*) FROM NOTICE_TBL
+	</select>
+</mapper>

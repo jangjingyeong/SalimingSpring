@@ -51,6 +51,11 @@
 			                        <label><b>내용 : </b></label><textarea rows="30" cols="40" id="noticeContent" name="noticeContent"></textarea>
                     			</td>
                     		</tr>
+                    		<tr>
+                    			<td>
+			                        <label><b>첨부파일 : </b></label><input type="file" name="uploadFile">
+                    			</td>
+                    		</tr>
 	                    </table>
                     </div>
 	                <div id="buttons">
