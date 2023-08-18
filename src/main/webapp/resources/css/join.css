@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+#main {
+    font-family: 'SUITE-Regular';
+}
+
+.compulsory {
+    color: red;
+}
+#join-wrapper {
+    --height: 500px;
+    text-align: center;
+}
+
+#join-title {
+    margin: 0 auto;
+    font-size: 30px;
+    width: 700px;
+    padding-top: 70px;
+    color: green;
+    border-bottom: 1px solid #ccc;
+}
+
+#join-id { 
+    margin-top: 80px;
+}
+
+
+.join input {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #f2f2f2;
+    width: 400px;
+    border: 0;
+    margin: 15px 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+#join-email>span>input, #join-email>span>select {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #f2f2f2;
+    width: 190px;
+    border: 0;
+    margin: 15px 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.addr {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #f2f2f2;
+    width: 400px;
+    border: 0;
+    margin: 5px 0 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.post {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #f2f2f2;
+    width: 170px;
+    border: 0;
+    margin: 15px 15px 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.addr:hover, .addr:active, .addr:focus{
+    background: #ecebeb;
+}
+
+.post:hover, .post:active, .post:focus{
+    background: #ecebeb;
+}
+
+.join input:hover, .join input:active , .join input:focus {
+    background: #ecebeb;
+}
+
+#join-btns button {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #4CAF50;
+    width: 300px;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 20px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    margin: 60px 0px 100px;
+}
+#join-btns button:hover, #join-btns button:active, #join-btns button:focus {
+    background: #43A047;
+}
+
+#id {
+    margin: 20px;
+}
+
+.join {
+    /* margin: 위 오 아 왼; */
+    margin: 20px 0px 20px 0px;
+}
+
+#pTag1 {
+    margin: 10px 0 30px 0;
+    font-size: 15px;
+    color: black;
+    font-weight: 40px;
+}
+
+#termdiv-1 {
+    margin: 0px 0px 30px 30px;
+    height: 50px;
+}
+
+#termdiv {
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+}
+
+
+#join-address p {
+    margin: 20px 0px 0px;
+}

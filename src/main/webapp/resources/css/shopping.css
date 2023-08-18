@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+#main {
+    font-family: 'SUITE-Regular';
+}
+#main-left {
+    width: 200px;
+}
+
+#maincate {
+    width: 200px;
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    float: left;
+}       
+
+#section {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    /* justify-content(가로 가운데)랑 align-items(세로 가운데) 쓰기 위해 선언!
+        ≫ column을 하는 순간 반대로 다 바뀜 */
+    align-items: center;
+    --flex-direction: column; /* 세로 방향, row는 가로 방향 */
+}
+
+.bestproduct {
+    width: 900px;
+}
+
+.product {
+    width: 350px;
+    margin: 30px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    float: left;
+}
+.product img {
+    margin: 15px;
+    border-radius: 10px;
+}
+.product p {
+    margin-bottom: 10px;
+}
+
+.sale {
+    font-size: 1.2em;
+    color: rgb(73, 150, 73);
+    font-weight: bolder;
+    margin-right: 10px;
+}
+

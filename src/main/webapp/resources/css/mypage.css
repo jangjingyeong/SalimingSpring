@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+#main {
+    font-family: 'SUITE-Regular';
+}
+#main-left, #main-right {
+    float: left;
+}
+#main-left {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    --align-items: center;
+    --flex-direction: column; 
+    float: left;    
+}       
+#category {
+    border: 2px solid #ccc;
+    border-collapse: collapse;
+    margin: 25px 25px 25px 25px;
+    text-align: center;
+}
+tr, th, td {
+    border: 1px solid #ccc;
+    font-size: 15px;
+    padding: 10px;
+}
+td a:link, td a:visited {
+    color: #222;
+}
+th a:link, th a:visited {
+    background-color: #eee;
+    color: green;
+}
+#main-right {
+    margin: 50px 0px 50px 50px;
+    width: 500px;   
+}
+
+#mynotifi p, #myscrap p {
+    line-height : 2;
+}
+
+.modifibtn {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #4CAF50;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 12px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.delbtn {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #ccc;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 12px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+
+.modifibtn:hover, .modifibtn:active, .modifibtn:focus {
+    background: #43A047;
+}
+.delbtn:hover, .delbtn:active, .delbtn:focus {
+    background: #b8b7b7;
+}
+
+#main-right div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titles {
+    font-size: 20px;
+    margin: 20px 0px 20px;
+}
+#main-right p {
+    margin-left: 50px;
+}
+hr {
+    margin: 20px 0px 20px;
+}

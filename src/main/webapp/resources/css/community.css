@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+#main {
+    font-family: 'SUITE-Regular';
+}
+
+#maincate {
+    --width: 200px;
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    /* justify-content(가로 가운데)랑 align-items(세로 가운데) 쓰기 위해 선언!
+        ≫ column을 하는 순간 반대로 다 바뀜 */
+    --align-items: center;
+    --flex-direction: column; /* 세로 방향, row는 가로 방향 */
+    float: left;
+}       
+
+#sharetitle{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom:30px;
+    font-weight: bold;
+    color: green;
+}
+
+#section {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    /* justify-content(가로 가운데)랑 align-items(세로 가운데) 쓰기 위해 선언!
+        ≫ column을 하는 순간 반대로 다 바뀜 */
+    align-items: center;
+    flex-direction: column; /* 세로 방향, row는 가로 방향 */
+}
+
+.writeBtn {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #4CAF50;
+    width: 80px;
+    border: 0;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 15px;
+    border-radius: 5px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.writeBtn:hover, .writeBtn:hover:active, .writeBtn:hover:focus {
+    background: #43A047;
+}
+
+.actionArea {
+    width: 720px;
+}
+.writeArea {
+    float: left;
+}
+.searchArea {
+    float: right;
+}
+.searchInput {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #f2f2f2;
+    width: 180px;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.searchIcon {
+    margin-left: 10px;
+    margin-right: 10px;
+    block-size: 15px;
+}
+
+.boardtable {
+    width: 750px;
+    margin-top: 10px;
+}
+
+table {
+    border: 2px solid #ccc;
+    border-collapse: collapse;
+    margin: 25px 25px 25px 25px;
+    text-align: center;
+}
+th {
+    background-color: #eee;
+    color: green;
+}
+tr, th, td {
+    border: 1px solid #ccc;
+    font-size: 15px;
+    padding: 10px;
+}
+td a:link, td a:visited {
+    color: #222;
+}
+th a:link, th a:visited {
+    background-color: #eee;
+    color: green;
+}
+
+
+
+
+.arrowKey {
+    margin-left: 10px;
+    margin-right: 10px;
+    block-size: 12px;
+}
+.page {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page a:visited, .page a:link {
+    color: #222;
+}
+
+
+
+.session>input {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #f2f2f2;
+    width: 400px;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#submitbutton { 
+	font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #4CAF50;
+    width: 80px;
+    border: 0;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 15px;
+    border-radius: 5px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+#resetbutton {
+	font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #ccc;
+    width: 80px;
+    border: 0;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 15px;
+    border-radius: 5px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+
+#buttons {
+	margin-bottom : 30px;
+}
+
+#submitbutton:hover, #submitbutton:hover:active, #submitbutton:hover:focus {
+    background: #43A047;
+}
+
+#resetbutton:hover, #resetbutton:hover:active, #resetbutton:hover:focus {
+    background: #b0b0b0;
+}
+
+#a-tag {
+	margin-bottom : 30px;
+}
+
+#a-tag a {
+	padding : 5px 10px 5px 10px;
+	background: #4CAF50;
+	border-radius: 5px;
+}
+
+#a-tag a:link, #a-tag a:visited, #a-tag a:hover, #a-tag a:active {
+  color: white;
+}
+

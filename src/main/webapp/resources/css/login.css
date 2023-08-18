@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+#main {
+    font-family: 'SUITE-Regular';
+}
+#login-page {
+    height: 500px;
+    text-align: center;
+}
+#login-title {
+    font-size: 30px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    color: green;
+}
+
+.idpw input {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #f2f2f2;
+    width: 400px;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.idpw input:hover, .idpw input:active , .idpw input:focus {
+    background: #ecebeb;
+}
+
+
+#login-page button {
+    font-family: 'SUITE-Regular';
+    outline: 0;
+    background: #4CAF50;
+    width: 300px;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 20px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+#login-page button:hover, #login-page button:active, #login-page button:focus {
+    background: #43A047;
+}
+
+
+#save_find {
+    padding: 20px 10px 30px 0px;
+    font-size: 15px;
+}
+
+#save_find label, #save_find a {
+    margin: 20px;
+}
+
+a:link {
+    color : black;
+}
+a:visited {
+    color : black;
+}   
