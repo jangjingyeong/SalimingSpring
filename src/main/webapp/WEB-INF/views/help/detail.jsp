@@ -43,29 +43,35 @@
 	                    	<tr>
 								<td>
 									<label>글번호</label>
-									<span>${requestScope.noticeOne.noticeNo }</span>
+									<span>${requestScope.notice.noticeNo }</span>
 								</td>
 								<td>
 									<label>작성일</label>
-									<span>${requestScope.noticeOne.noticeDate }</span>
+									<span>${requestScope.notice.noticeDate }</span>
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2">
-									<label><b>제목 : ${noticeOne.noticeSubject }</b></label>
+									<label><b>제목 : ${notice.noticeSubject }</b></label>
 								</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<label><b>내용 : </b></label>
-									<p>${noticeOne.noticeContent }</p>
+									<p>${notice.noticeContent }</p>
+								</td>							
+							</tr>
+							<tr>
+								<td colspan="2">
+									<label><b>첨부파일 : </b></label>
+									<p><a href="../resources/nuploadFiles/${notice.noticeFilename }" download>${notice.noticeFilename }</a></p>
 								</td>							
 							</tr>
 	                    </table>
 	                </div>
 						<c:if test="${memberId eq 'admin' }">
 	                		<div id="a-tag">
-			                    <a href="/notice/modify.do?noticeNo=${noticeOne.noticeNo }">수정하기</a>
+			                    <a href="/notice/modify.do?noticeNo=${notice.noticeNo }">수정하기</a>
 			                    <a href="javascript:void(0)" onclick="checkDelete();">삭제하기</a>
 			                </div>
                         </c:if>
@@ -82,7 +88,7 @@
         <script>
 		// /member/delete.do?memberId=${sessionScope.memberId }
 			function checkDelete() {
-				const noticeNo = '${requestScope.noticeOne.noticeNo}';
+				const noticeNo = '${requestScope.notice.noticeNo}';
 				if(confirm("삭제하시겠습니까?")){
 					location.href = "/notice/delete.do?noticeNo=" + noticeNo;
 				}

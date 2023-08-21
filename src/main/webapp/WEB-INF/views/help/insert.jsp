@@ -38,7 +38,7 @@
                     <div>
                         <div id="sharetitle">공지사항 작성</div>
                     </div>
-                	<form action="/notice/insert.do" method="post">
+                	<form action="/notice/insert.do" method="post" enctype="multipart/form-data">
                     <div class="actionArea">
 	                    <table class="boardtable">
                     		<tr>

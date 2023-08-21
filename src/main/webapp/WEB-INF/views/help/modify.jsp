@@ -39,7 +39,7 @@
                         <div id="sharetitle">공지사항 수정</div>
                     </div>
                     <div>
-                    	<form action="/notice/modify.do" method="post">
+                    	<form action="/notice/modify.do" method="post" enctype="multipart/form-data">
 		                    <table class="boardtable">
 		                    	<tr>
 									<td>
@@ -62,6 +62,14 @@
 										<label><b>내용 : <textarea rows="30" cols="40" id="" name="noticeContent">${notice.noticeContent }</textarea></b></label>
 									</td>							
 								</tr>
+								<tr>
+                    			<td>
+			                        <label><b>첨부파일 : </b></label><input type="file" name="uploadFile" >
+                    			</td>
+                    			<td>
+                    				<a href="../resources/nuploadFiles/${notice.noticeFilename }" download>${notice.noticeFilename }</a>
+                    			</td>
+                    		</tr>
 		                    </table>
 		                    <input type="submit" value="수정하기">
 							<input type="reset" value="초기화">
