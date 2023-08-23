@@ -64,7 +64,7 @@
 							<tr>
 								<td colspan="2">
 									<label><b>첨부파일 : </b></label>
-									<p><a href="../resources/nuploadFiles/${notice.noticeFilename }" download>${notice.noticeFilename }</a></p>
+									<p><a href="../resources/nuploadFiles/${notice.noticeFileRename }" download>${notice.noticeFilename }</a></p>
 								</td>							
 							</tr>
 	                    </table>

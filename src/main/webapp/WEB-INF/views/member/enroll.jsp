@@ -109,7 +109,7 @@
 				const cPw = document.getElementById("check_pw");
 				const cPw2 = document.getElementById("check_pw2");
 				const cName = document.getElementById("check_name");
-				const cNickName = document.getElementById("check_nickname");
+				const cNickname = document.getElementById("check_nickname");
 				const cBirth = document.getElementById("check_birth");
 				const cPhone = document.getElementById("check_tel");
 				
@@ -126,9 +126,8 @@
 				const idRegExp = /^[a-z][a-z0-9]{4,11}$/g;
 				const pwRegExp =  /^(?=.*[a-zA-Z]{1,})(?=.*[!@#$%^*+=-]{1,})(?=.*[0-9]{1,}).{8,20}$/g;
 				const nameRegExp = /^[가-힣]+$/g;
-				const nicknameRegExp = ^[가-힣a-zA-Z0-9]*$
+				const nicknameRegExp = /^[가-힣a-zA-Z0-9]+$/g;
 				const birthRegExp = /^[0-9]{8}$/g;	
-				const emailRegExp = /^[a-zA-Z0-9]{4,12}@[a-z]+\.[a-z]{3}/g;
 				const telRegExp = /^[0-9]{11}$/g;
 				
 				

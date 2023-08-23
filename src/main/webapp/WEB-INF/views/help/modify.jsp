@@ -40,6 +40,10 @@
                     </div>
                     <div>
                     	<form action="/notice/modify.do" method="post" enctype="multipart/form-data">
+                    		<input type="hidden" name="noticeFilename" value="${notice.noticeFilename }">
+							<input type="hidden" name="noticeFileRename" value="${notice.noticeFileRename }">
+							<input type="hidden" name="noticeFilepath" value="${notice.noticeFilepath }">
+							<input type="hidden" name="noticeFilelength" value="${notice.noticeFilelength }">
 		                    <table class="boardtable">
 		                    	<tr>
 									<td>
@@ -67,7 +71,7 @@
 			                        <label><b>첨부파일 : </b></label><input type="file" name="uploadFile" >
                     			</td>
                     			<td>
-                    				<a href="../resources/nuploadFiles/${notice.noticeFilename }" download>${notice.noticeFilename }</a>
+                    				<a href="../resources/nuploadFiles/${notice.noticeFileRename }" download>${notice.noticeFilename }</a>
                     			</td>
                     		</tr>
 		                    </table>

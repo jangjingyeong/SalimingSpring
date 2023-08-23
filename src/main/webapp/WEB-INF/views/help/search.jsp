@@ -66,6 +66,7 @@
                                 <th>No</th>
                                 <th style="width: 300px;">제목</th>
                                 <th>작성일</th>
+                                <th>첨부파일</th>
                                 <th>조회수</th>
                             </tr>
                         </thead>
@@ -75,6 +76,10 @@
 	                                <td>${notice.noticeNo }</td>
 	                                <td><a href="/notice/detail.do?noticeNo=${notice.noticeNo }">${notice.noticeSubject }</td>
 	                                <td><fmt:formatDate pattern="YYYY-MM-dd" value="${notice.noticeDate }"/></td>
+	                                <td>
+										<c:if test="${!empty notice.noticeFilename }">O</c:if>
+										<c:if test="${empty notice.noticeFilename }">X</c:if>
+									</td>
 	                                <td><fmt:formatNumber pattern="##,###,###" value="${notice.viewCount }"/></td>
 	                            </tr>	
                            </c:forEach>
