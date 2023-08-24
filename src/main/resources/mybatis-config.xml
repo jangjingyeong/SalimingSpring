@@ -5,10 +5,13 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="kr.co.saliming.member.domain.Member" alias="Member"/>
+		<typeAlias type="kr.co.saliming.notice.domain.Notice" alias="Notice"/>
+		<typeAlias type="kr.co.saliming.shareboard.domain.ShareBoard" alias="ShareBoard"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/notice-mapper.xml"/>
+		<mapper resource="mappers/shareboard-mapper.xml"/>
 	</mappers>
 </configuration>

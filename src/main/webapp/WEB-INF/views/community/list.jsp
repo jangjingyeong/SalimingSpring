@@ -18,37 +18,35 @@
             <jsp:include page="/WEB-INF/views/include/nav.jsp"></jsp:include>
             <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
             <main id="main">
-                <div id="main-left">
+                <div id="maincate">
                     <table id="category">
                         <tr>
-                            <th><a href="/notice/list.do">고객지원</a></th>
+                            <th><a href="/community/shareList.do">커뮤니티</a></th>
                         </tr>
                         <tr>
-                            <td><a href="/notice/list.do">공지사항</a></td>
+                            <td><a href="/community/shareList.do">정보공유게시판</a></td>
                         </tr>
                         <tr>
-                            <td><a href="#">FAQ</a></td>
+                            <td><a href="#">자유게시판</a></td>
                         </tr>
-                        <tr>
-                            <td><a href="#">Q&A</a></td>
-                        </tr>
-                    </table>
+                        
+                    </table>    
                 </div>
                 <section id="section">
 
                     <div>
-                        <div id="sharetitle">공지사항</div>
+                        <div id="sharetitle">정보공유게시판</div>
                     </div>
                     <div class="actionArea">
-            			<c:if test="${memberId eq 'admin' }">
+            			<c:if test="${memberId ne null }">
 							<span class="writeArea">
-								<form action="/notice/insert.do" method="get">
-                           			<button class="writeBtn" onclick="">글쓰기</button> 
+								<form action="/shareBoard/insert.do" method="get">
+                           			<button class="writeBtn">글쓰기</button> 
                             	</form>
                         	</span>
                         </c:if>
                         <span class="searchArea">
-                        	<form action="/notice/search.do" method="get">
+                        	<form action="/shareBoard/search.do" method="get">
 								<select name="searchCondition">
 									<option value="all">전체</option>
 									<option value="title">제목</option>
@@ -65,22 +63,24 @@
                             <tr>
                                 <th>글번호</th>
                                 <th style="width: 300px;">제목</th>
+                                <th>작성자</th>
                                 <th>작성일</th>
                                 <th>첨부파일</th>
                                 <th>조회수</th>
                             </tr>
                         </thead>
                         <tbody>
-                        	<c:forEach var="notice" items="${ nList }" varStatus="i">
+                        	<c:forEach var="shareBoard" items="${ sbList }" varStatus="i">
 	                            <tr>
-	                                <td>${notice.noticeNo }</td>
-	                                <td><a href="/notice/detail.do?noticeNo=${notice.noticeNo }">${notice.noticeSubject }</td>
-	                                <td><fmt:formatDate pattern="YYYY-MM-dd" value="${notice.noticeDate }"/></td>
+	                                <td>${shareBoard.boardNo }</td>
+	                                <td><a href="/shareBoard/detail.do?boardNo=${shareBoard.boardNo }">${shareBoard.boardTitle }</td>
+	                                <td>${shareBoard.boardWriter }</td>
+	                                <td><fmt:formatDate pattern="YYYY-MM-dd" value="${shareBoard.bCreateDate }"/></td>
 	                                <td>
-										<c:if test="${!empty notice.noticeFilename }">O</c:if>
-										<c:if test="${empty notice.noticeFilename }">X</c:if>
+										<c:if test="${!empty shareBoard.boardFilename }">O</c:if>
+										<c:if test="${empty shareBoard.boardFilename }">X</c:if>
 									</td>
-	                                <td><fmt:formatNumber pattern="##,###,###" value="${notice.viewCount }"/></td>
+	                                <td><fmt:formatNumber pattern="##,###,###" value="${shareBoard.boardCount }"/></td>
 	                            </tr>	
                            </c:forEach>
                         </tbody>
@@ -88,7 +88,7 @@
             		
                     <div class="page">
                     <c:if test="${pInfo.startNavi ne '1' }">
-                    	<a href="/notice/list.do?page=${pInfo.startNavi-1 }" class="first"><img class="arrowKey" src="/resources/img/왼쪽페이지.png">&nbsp;&nbsp;&nbsp;</a>
+                    	<a href="/shareBoard/list.do?page=${pInfo.startNavi-1 }" class="first"><img class="arrowKey" src="/resources/img/왼쪽페이지.png">&nbsp;&nbsp;&nbsp;</a>
                     </c:if>
                     <c:forEach begin="${pInfo.startNavi }" end="${pInfo.endNavi }" var="p">
 						<c:url var="pageUrl" value="/notice/list.do">
@@ -97,7 +97,7 @@
 						<a href="${pageUrl }">${p }</a>&nbsp;
 					</c:forEach>
 					<c:if test="${pInfo.endNavi ne pInfo.naviTotalCount }">
-						<a href="/notice/list.do?page=${pInfo.endNavi+1 }" class="last"><img class="arrowKey" src="/resources/img/오른쪽페이지.png"></a>
+						<a href="/shareBoard/list.do?page=${pInfo.endNavi+1 }" class="last"><img class="arrowKey" src="/resources/img/오른쪽페이지.png"></a>
 					</c:if>
                     </div>
                 </section>

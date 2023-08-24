@@ -15,7 +15,7 @@ import kr.co.saliming.member.domain.Member;
 import kr.co.saliming.member.service.MemberService;
 
 @Controller
-@SessionAttributes({"memberId", "memberName"})
+@SessionAttributes({"memberId", "memberName","memberNickname"})
 public class MemberController {
 	
 	@Autowired
@@ -158,6 +158,7 @@ public class MemberController {
 				// 로그인 성공 
 				model.addAttribute("memberId", mOne.getMemberId());
 				model.addAttribute("memberName", mOne.getMemberName());
+				model.addAttribute("memberNickname", mOne.getMemberNickname());
 				return "redirect:/index.jsp";
 			} else {
 				// 로그인 실패 

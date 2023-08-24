@@ -63,7 +63,7 @@
                     <table class="boardtable">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>글번호</th>
                                 <th style="width: 300px;">제목</th>
                                 <th>작성일</th>
                                 <th>첨부파일</th>
