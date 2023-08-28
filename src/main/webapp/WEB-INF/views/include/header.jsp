@@ -7,7 +7,7 @@
     </div>
     <nav id="nav2">
         <ul id="nav2ul">
-            <li><a href="/community/shareList.do">커뮤니티</a></li>
+            <li><a href="/shareBoard/list.do">커뮤니티</a></li>
             <li><a href="/shopping/saliming-shopping.html">쇼핑</a></li>
             <li><a href="/event/saliming-eventing.html">이벤트</a></li> 
             <li><a href="/notice/list.do">고객지원</a></li>

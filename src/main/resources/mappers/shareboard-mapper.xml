@@ -22,4 +22,57 @@
 		INSERT INTO SHAREBOARD_TBL VALUES(SEQ_SHAREBOARD_NO.NEXTVAL, #{boardTitle}, #{boardContent}, #{boardWriter}, #{boardFilename}, #{boardFileRename}, #{boardFilepath}, #{boardFilelength}, 0, DEFAULT, DEFAULT, DEFAULT)
 	</insert>
 	
+	<update id="updateShareBoard">
+		UPDATE SHAREBOARD_TBL SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_FILENAME = #{boardFilename}, BOARD_FILERENAME = #{boardFileRename}, BOARD_FILEPATH = #{boardFilepath}, BOARD_FILELENGTH = #{boardFilelength}, B_UPDATE_DATE = DEFAULT WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<delete id="deleteShareBoard">
+		DELETE FROM SHAREBOARD_TBL WHERE BOARD_NO = #{boardNo}
+	</delete>
+	
+	<select id="selectShareBoardList" resultMap="shareBoardResultMap">
+		SELECT * FROM SHAREBOARD_TBL ORDER BY BOARD_NO DESC
+	</select>
+	<select id="selectShareBoardByNo" resultMap="shareBoardResultMap">
+		SELECT * FROM SHAREBOARD_TBL WHERE BOARD_NO = #{boardNo}
+	</select>
+	<select id="getTotalCount" resultType="_int">
+		SELECT COUNT(*) FROM SHAREBOARD_TBL
+	</select>
+	
+	<select id="selectShareBoardByKeyword" resultMap="shareBoardResultMap">
+		SELECT * FROM SHAREBOARD_TBL
+		<if test="searchCondition == 'all'">
+			WHERE BOARD_WRITER LIKE '%'||#{searchKeyword}||'%' OR BOARD_TITLE LIKE '%'||#{searchKeyword}||'%' OR BOARD_CONTENT LIKE '%'||#{searchKeyword}||'%' ORDER BY BOARD_NO DESC
+		</if>
+		<if test="searchCondition == 'writer'">
+			WHERE BOARD_WRITER LIKE '%'||#{searchKeyword}||'%' ORDER BY BOARD_NO DESC
+		</if>
+		<if test="searchCondition == 'title'">
+			WHERE BOARD_TITLE LIKE '%'||#{searchKeyword}||'%' ORDER BY BOARD_NO DESC
+		</if>
+		<if test="searchCondition == 'content'">
+			WHERE BOARD_CONTENT LIKE '%'||#{searchKeyword}||'%' ORDER BY BOARD_NO DESC
+		</if>
+	</select>
+	
+	<select id="selectListByKeywordCount" resultType="_int">
+		SELECT COUNT(*) FROM SHAREBOARD_TBL
+		<if test="searchCondition == 'all'">
+			WHERE BOARD_WRITER LIKE '%'||#{searchKeyword}||'%' OR BOARD_TITLE LIKE '%'||#{searchKeyword}||'%' OR BOARD_CONTENT LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		<if test="searchCondition == 'writer'">
+			WHERE BOARD_WRITER LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		<if test="searchCondition == 'title'">
+			WHERE BOARD_TITLE LIKE '%'||#{searchKeyword}||'%'
+		</if>
+		<if test="searchCondition == 'content'">
+			WHERE BOARD_CONTENT LIKE '%'||#{searchKeyword}||'%'
+		</if>
+	</select>
+	
+	
+	
+	
 </mapper>

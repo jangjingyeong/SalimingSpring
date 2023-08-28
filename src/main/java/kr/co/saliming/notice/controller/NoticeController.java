@@ -150,7 +150,7 @@ public class NoticeController {
 				return "help/modify";
 			} else {
 				model.addAttribute("msg", "데이터 조회가 완료되지 않았습니다.");
-				model.addAttribute("error", "공지사항 목록 조회 실패");
+				model.addAttribute("error", "데이터 조회 실패");
 				model.addAttribute("url", "/index.jsp");
 				return "common/serviceFailed";
 			}

@@ -40,20 +40,20 @@
                     <div class="actionArea">
             			<c:if test="${memberId ne null }">
 							<span class="writeArea">
-								<form action="/shareBoard/insert.do" method="get">
-                           			<button class="writeBtn">글쓰기</button> 
+								<form action="/shareboard/insert.do" method="get">
+                           			<button class="writeBtn" onclick="">글쓰기</button> 
                             	</form>
                         	</span>
                         </c:if>
                         <span class="searchArea">
                         	<form action="/shareBoard/search.do" method="get">
 								<select name="searchCondition">
-									<option value="all">전체</option>
-									<option value="title">제목</option>
-									<option value="writer">작성자</option>
-									<option value="content">내용</option>
+									<option value="all" <c:if test="${paramMap.searchCondition == 'all' }">selected</c:if>>전체</option>
+									<option value="title" <c:if test="${paramMap.searchCondition == 'title' }">selected</c:if>>제목</option>
+									<option value="writer" <c:if test="${paramMap.searchCondition == 'writer' }">selected</c:if>>작성자</option>
+									<option value="content" <c:if test="${paramMap.searchCondition == 'content' }">selected</c:if>>내용</option>
 								</select>
-                            <input class="searchInput" type="text" name="searchKeyword" placeholder="검색어를 입력하세요.">
+                            <input class="searchInput" type="text" placeholder="검색어를 입력하세요." name="searchKeyword" value="${paramMap.searchKeyword }">
                             <input type="submit" value="검색">
                             </form>
                         </span>
@@ -71,7 +71,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        	<c:forEach var="shareBoard" items="${ sbList }" varStatus="i">
+                        	<c:forEach var="shareBoard" items="${ sList }" varStatus="i">
 	                            <tr>
 	                                <td>${shareBoard.boardNo }</td>
 	                                <td><a href="/shareBoard/detail.do?boardNo=${shareBoard.boardNo }">${shareBoard.boardTitle }</td>
@@ -92,7 +92,9 @@
                     	<a href="/shareBoard/list.do?page=${pInfo.startNavi-1 }" class="first"><img class="arrowKey" src="/resources/img/왼쪽페이지.png">&nbsp;&nbsp;&nbsp;</a>
                     </c:if>
                     <c:forEach begin="${pInfo.startNavi }" end="${pInfo.endNavi }" var="p">
-						<c:url var="pageUrl" value="/shareBoard/list.do">
+						<c:url var="pageUrl" value="/shareBoard/search.do">
+							<c:param name="searchCondition" value="${paramMap.searchCondition }"></c:param>
+								<c:param name="searchKeyword" value="${paramMap.searchKeyword }"></c:param>
 							<c:param name="page" value="${p }"></c:param>
 						</c:url>
 						<a href="${pageUrl }">${p }</a>&nbsp;

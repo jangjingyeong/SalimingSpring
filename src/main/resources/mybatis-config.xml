@@ -7,11 +7,13 @@
 		<typeAlias type="kr.co.saliming.member.domain.Member" alias="Member"/>
 		<typeAlias type="kr.co.saliming.notice.domain.Notice" alias="Notice"/>
 		<typeAlias type="kr.co.saliming.shareboard.domain.ShareBoard" alias="ShareBoard"/>
+		<typeAlias type="kr.co.saliming.shareboard.domain.Reply" alias="Reply"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/notice-mapper.xml"/>
 		<mapper resource="mappers/shareboard-mapper.xml"/>
+		<mapper resource="mappers/reply-mapper.xml"/>
 	</mappers>
 </configuration>
