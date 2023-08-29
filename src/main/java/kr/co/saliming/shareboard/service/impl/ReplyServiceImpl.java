@@ -26,6 +26,18 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
+	public int updateReply(Reply reply) {
+		int result = rStore.updateReply(sqlSession, reply);
+		return result;
+	}
+
+	@Override
+	public int deleteReply(Reply reply) {
+		int result = rStore.deleteReply(sqlSession, reply);
+		return result;
+	}
+
+	@Override
 	public List<Reply> selectReplyList(Integer boardNo) {
 		List<Reply> rList = rStore.selectReplyList(sqlSession, boardNo);
 		return rList;

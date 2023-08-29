@@ -36,12 +36,14 @@
                     <div>
                         <div id="sharetitle">정보공유게시판 상세</div>
                     </div>
-                    <c:if test="${sessionScope.memberNickname eq shareBoard.boardWriter }">
-	               		<div id="a-tag">
+               		<div id="a-tag">
+	                    <c:if test="${sessionScope.memberNickname eq shareBoard.boardWriter }">
 		                    <a href="/shareBoard/modify.do?boardNo=${shareBoard.boardNo }">수정하기</a>
-		                    <a href="javascript:void(0)" onclick="checkDelete();">삭제하기</a>
-		                </div>
-                    </c:if>
+	    	                <a href="javascript:void(0)" onclick="checkDelete();">삭제하기</a>
+	                    </c:if>
+                    <button type="button" class="delbtn" onclick="showBoardList();">목록으로</button>
+	                </div>
+<!-- 					<button type="button" onclick="javascripy:history.go(-1);">뒤로가기</button> -->
                     <div>
 	                    <table class="boardtable">
 	                    	<tr>
@@ -53,29 +55,34 @@
 									<label>작성일</label>
 									<span>${requestScope.shareBoard.bCreateDate }</span>
 								</td>
+								<td>
+									<label>수정일</label>
+									<span>${requestScope.shareBoard.bUpdateDate }</span>
+								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="3">
 									<label><b>제목 : ${shareBoard.boardTitle }</b></label>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="3">
 									<label><b>내용 : </b></label>
 									<p>${shareBoard.boardContent }</p>
 								</td>							
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="3">
 									<label><b>첨부파일 : </b></label>
 									<p><a href="../resources/sbuploadFiles/${shareBoard.boardFileRename }" download>${shareBoard.boardFilename }</a></p>
 								</td>							
 							</tr>
 	                    </table>
 	                </div>
-	                <br><hr><br>
+	                <br>
+	                <!-- 댓글 등록 -->
 					<form action="/reply/add.do" method="post">
-						<input type="hidden" name="refBoardNo" value="${boardOne.boardNo}">
+						<input type="hidden" name="refBoardNo" value="${shareBoard.boardNo}">
 						<table width="500" border="1">
 							<tr>
 								<td>
@@ -87,8 +94,9 @@
 							</tr>
 						</table>
 					</form>
+					<!-- 댓글 목록 -->
 					<table width="600" border="1">
-						<c:forEach var="reply" items="${rList }">
+						<c:forEach var="reply" items="${replyList }">
 						<!-- forEach에서 var는 List에 있는 것들을 꺼내쓸 변수명 items는 값을 꺼낼 List -->
 						<tr>
 							<td>${reply.replyWriter }</td>
@@ -96,7 +104,7 @@
 							<td>${reply.rCreateDate }</td>
 							<td>
 		<%-- 						<a href="javascript:void(0)" onclick="showModifyForm(this, '${reply.replyContent }');">수정하기</a> / <a href="javascript:void(0)" onclick="deleteReply();" >삭제하기</a> --%>
-								<c:if test="${ reply.replyWriter eq memberId}">
+								<c:if test="${ reply.replyWriter eq memberNickname}">
 									<a href="javascript:void(0)" onclick="showReplyModifyForm(this);">수정하기</a> / <a href="javascript:void(0)" onclick="deleteReply();" >삭제하기</a>
 								</c:if>
 							</td>
@@ -124,6 +132,9 @@
             </footer>
         </div>
         <script>
+	        function showBoardList() {
+				location.href="/shareBoard/list.do";
+			}
 		// /member/delete.do?memberId=${sessionScope.memberId }
 			function checkDelete() {
 				const boardNo = '${requestScope.shareBoard.boardNo}';

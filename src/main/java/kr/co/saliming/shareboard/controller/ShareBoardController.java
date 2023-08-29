@@ -222,7 +222,7 @@ public class ShareBoardController {
 			if(shareBoard != null) {
 				List<Reply> replyList = rService.selectReplyList(boardNo);
 				if(replyList.size() > 0) {
-					mv.addObject("rList", replyList);
+					mv.addObject("replyList", replyList);
 				}
 				mv.addObject("shareBoard", shareBoard);
 				mv.setViewName("community/detail");

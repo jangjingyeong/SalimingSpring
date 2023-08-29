@@ -3,6 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
 	<typeAliases>
 		<typeAlias type="kr.co.saliming.member.domain.Member" alias="Member"/>
 		<typeAlias type="kr.co.saliming.notice.domain.Notice" alias="Notice"/>
