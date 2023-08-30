@@ -76,7 +76,7 @@ public class ReplyController {
 		return mv;
 	}
 	
-	
+	@RequestMapping(value = "/delete.do", method = RequestMethod.GET)
 	public ModelAndView deleteReply(ModelAndView mv
 			, @ModelAttribute Reply reply
 			, HttpSession session) {
@@ -84,7 +84,7 @@ public class ReplyController {
 		try {
 			String memberNickname = (String)session.getAttribute("memberNickname");
 			String replyWriter = reply.getReplyWriter();
-			url = "/board/detail.kh?boardNo="+reply.getRefBoardNo();
+			url = "/shareBoard/detail.do?boardNo="+reply.getRefBoardNo();
 			if(replyWriter != null && replyWriter.equals(memberNickname)) {
 				int result = rService.deleteReply(reply);
 				if(result > 0) {

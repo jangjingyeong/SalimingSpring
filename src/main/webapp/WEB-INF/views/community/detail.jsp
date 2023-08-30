@@ -105,7 +105,12 @@
 							<td>
 		<%-- 						<a href="javascript:void(0)" onclick="showModifyForm(this, '${reply.replyContent }');">수정하기</a> / <a href="javascript:void(0)" onclick="deleteReply();" >삭제하기</a> --%>
 								<c:if test="${ reply.replyWriter eq memberNickname}">
-									<a href="javascript:void(0)" onclick="showReplyModifyForm(this);">수정하기</a> / <a href="javascript:void(0)" onclick="deleteReply();" >삭제하기</a>
+										<c:url var="delReplyUrl" value="/reply/delete.do">
+											<c:param name="replyNo" value="${reply.replyNo }"></c:param>
+											<c:param name="replyWriter" value="${reply.replyWriter }"></c:param>
+											<c:param name="refBoardNo" value="${reply.refBoardNo }"></c:param>
+										</c:url>
+									<a href="javascript:void(0)" onclick="showReplyModifyForm(this);">수정하기</a> / <a href="javascript:void(0)" onclick="deleteReply('${delReplyUrl}');" >삭제하기</a>
 								</c:if>
 							</td>
 						</tr>
@@ -132,6 +137,43 @@
             </footer>
         </div>
         <script>
+        	function replyModifyReply(obj, replyNo, refBoardNo) {
+        		const form = document.createElement("form");
+        		form.action="/reply/update.do";
+        		form.method="post";
+        		
+        		const input1 = document.createElement("input");
+        		input1.type="hidden";
+        		input1.value=replyNo;
+        		input1.name="replyNo";
+        		
+        		const input2 = document.createElement("input");
+        		input2.type="hidden";
+        		input2.value=refBoardNo;
+        		input2.name="refBoardNo";
+        		
+        		const input3 = document.createElement("input");
+        		input3.type="text";
+        		input3.value=obj.parentElement.previousElementSibling.children[0].value;
+        		input3.name="replyContent";
+        		
+        		form.appendChild(input1);
+        		form.appendChild(input2);
+        		form.appendChild(input3);
+        		
+        		document.body.appendChild(form);
+        		form.submit();
+        		
+        		
+        	}
+        
+        	function showReplyModifyForm(obj) {
+        		obj.parentElement.parentElement.nextElementSibling.style.display="";
+        	}
+        	function deleteReply(url) {
+        		location.href = url; 
+        	}
+        
 	        function showBoardList() {
 				location.href="/shareBoard/list.do";
 			}
