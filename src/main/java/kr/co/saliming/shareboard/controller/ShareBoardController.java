@@ -222,10 +222,11 @@ public class ShareBoardController {
 			if(shareBoard != null) {
 				List<Reply> replyList = rService.selectReplyList(boardNo);
 				if(replyList.size() > 0) {
+					int result = sbService.updateBoardCount(boardNo);
 					mv.addObject("replyList", replyList);
 				}
 				mv.addObject("shareBoard", shareBoard);
-				mv.setViewName("community/detail");
+		 		mv.setViewName("community/detail");
 			} else {
 				mv.addObject("msg", "게시글 조회가 완료되지 않았습니다.");
 				mv.addObject("error", "게시글 상세 조회 실패");

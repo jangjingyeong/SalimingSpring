@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,10 +21,10 @@
                 <div id="maincate">
                     <table id="category">
                         <tr>
-                            <th><a href="/community/shareList.do">커뮤니티</a></th>
+                            <th><a href="/shareBoard/list.do">커뮤니티</a></th>
                         </tr>
                         <tr>
-                            <td><a href="/community/shareList.do">정보공유게시판</a></td>
+                            <td><a href="/shareBoard/list.do">정보공유게시판</a></td>
                         </tr>
                         <tr>
                             <td><a href="#">자유게시판</a></td>
@@ -52,27 +53,32 @@
 									<span>${requestScope.shareBoard.boardNo }</span>
 								</td>
 								<td>
+									
 									<label>작성일</label>
-									<span>${requestScope.shareBoard.bCreateDate }</span>
+									<span><fmt:formatDate value="${shareBoard.bCreateDate }" pattern="yyyy-MM-dd hh:mm"/></span>
 								</td>
 								<td>
 									<label>수정일</label>
-									<span>${requestScope.shareBoard.bUpdateDate }</span>
+									<span><fmt:formatDate value="${shareBoard.bUpdateDate }" pattern="yyyy-MM-dd hh:mm"/></span>
+								</td>
+								<td>
+									<label>조회수</label>
+									<span>${requestScope.shareBoard.boardCount }</span>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="3">
+								<td colspan="4">
 									<label><b>제목 : ${shareBoard.boardTitle }</b></label>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="3">
+								<td colspan="4">
 									<label><b>내용 : </b></label>
 									<p>${shareBoard.boardContent }</p>
 								</td>							
 							</tr>
 							<tr>
-								<td colspan="3">
+								<td colspan="4">
 									<label><b>첨부파일 : </b></label>
 									<p><a href="../resources/sbuploadFiles/${shareBoard.boardFileRename }" download>${shareBoard.boardFilename }</a></p>
 								</td>							
@@ -101,7 +107,7 @@
 						<tr>
 							<td>${reply.replyWriter }</td>
 							<td>${reply.replyContent }</td>
-							<td>${reply.rCreateDate }</td>
+							<td><fmt:formatDate value="${reply.rCreateDate }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 							<td>
 		<%-- 						<a href="javascript:void(0)" onclick="showModifyForm(this, '${reply.replyContent }');">수정하기</a> / <a href="javascript:void(0)" onclick="deleteReply();" >삭제하기</a> --%>
 								<c:if test="${ reply.replyWriter eq memberNickname}">

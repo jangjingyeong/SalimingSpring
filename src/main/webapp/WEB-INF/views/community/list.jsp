@@ -21,10 +21,10 @@
                 <div id="maincate">
                     <table id="category">
                         <tr>
-                            <th><a href="/community/shareList.do">커뮤니티</a></th>
+                            <th><a href="/shareBoard/list.do">커뮤니티</a></th>
                         </tr>
                         <tr>
-                            <td><a href="/community/shareList.do">정보공유게시판</a></td>
+                            <td><a href="/shareBoard/list.do">정보공유게시판</a></td>
                         </tr>
                         <tr>
                             <td><a href="#">자유게시판</a></td>

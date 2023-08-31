@@ -20,6 +20,7 @@ public interface ReplyService {
 	 */
 	int updateReply(Reply reply);
 
+
 	/**
 	 * 게시글 댓글 삭제 Service
 	 * @param reply

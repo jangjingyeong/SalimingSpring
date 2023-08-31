@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,22 +48,30 @@
 								</td>
 								<td>
 									<label>작성일</label>
-									<span>${requestScope.notice.noticeDate }</span>
+									<span><fmt:formatDate value="${notice.noticeDate }" pattern="yyyy-MM-dd hh:mm"/></span>
+								</td>
+								<td>
+									<label>수정일</label>
+									<span><fmt:formatDate value="${notice.updateDate }" pattern="yyyy-MM-dd hh:mm"/></span>
+								</td>
+								<td>
+									<label>조회수</label>
+									<span>${notice.viewCount }</span>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="4">
 									<label><b>제목 : ${notice.noticeSubject }</b></label>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="4">
 									<label><b>내용 : </b></label>
 									<p>${notice.noticeContent }</p>
 								</td>							
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td colspan="4">
 									<label><b>첨부파일 : </b></label>
 									<p><a href="../resources/nuploadFiles/${notice.noticeFileRename }" download>${notice.noticeFilename }</a></p>
 								</td>							

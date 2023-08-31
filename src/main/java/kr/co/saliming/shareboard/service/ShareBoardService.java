@@ -24,6 +24,13 @@ public interface ShareBoardService {
 	int updateShareBoard(ShareBoard shareBoard);
 
 	/**
+	 * 정보공유게시판 게시글 조회수 Service
+	 * @param boardNo
+	 * @return
+	 */
+	int updateBoardCount(Integer boardNo);
+
+	/**
 	 * 정보공유게시판 게시글 삭제 Service
 	 * @param boardNo
 	 * @return
@@ -50,7 +57,18 @@ public interface ShareBoardService {
 	 */
 	List<ShareBoard> selectShareBoardList(PageInfo pInfo);
 
+	/**
+	 * 정보공유게시판 검색 게시글 총 갯수 조회 Service
+	 * @param paramMap
+	 * @return
+	 */
 	int getListCount(Map<String, String> paramMap);
 
+	/**
+	 * 정보공유게시판 검색 게시글 리스트 조회 Service
+	 * @param pInfo
+	 * @param paramMap
+	 * @return
+	 */
 	List<ShareBoard> searchShareBoardByKeyword(PageInfo pInfo, Map<String, String> paramMap);
 }

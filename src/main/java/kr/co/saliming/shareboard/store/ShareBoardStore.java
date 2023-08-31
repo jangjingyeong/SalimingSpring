@@ -27,6 +27,14 @@ public interface ShareBoardStore {
 	int updateShareBoard(SqlSession session, ShareBoard shareBoard);
 
 	/**
+	 * 정보공유게시판 게시글 조회수 Store
+	 * @param session
+	 * @param boardNo
+	 * @return
+	 */
+	int updateBoardCount(SqlSession session, Integer boardNo);
+
+	/**
 	 * 정보공유게시판 게시글 삭제 Store
 	 * @param session
 	 * @param boardNo
@@ -57,7 +65,20 @@ public interface ShareBoardStore {
 	 */
 	List<ShareBoard> selectShareBoardList(SqlSession session, PageInfo pInfo);
 
+	/**
+	 * 정보공유게시판 검색 게시글 총 갯수 조회 Store
+	 * @param session
+	 * @param paramMap
+	 * @return
+	 */
 	int getListCount(SqlSession session, Map<String, String> paramMap);
 
+	/**
+	 * 정보공유게시판 검색 게시글 리스트 조회 Store
+	 * @param session
+	 * @param pInfo
+	 * @param paramMap
+	 * @return
+	 */
 	List<ShareBoard> selectShareBoardByKeyword(SqlSession session, PageInfo pInfo, Map<String, String> paramMap);
 }

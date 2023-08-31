@@ -27,6 +27,12 @@ public class ShareBoardStoreLogic implements ShareBoardStore{
 	}
 
 	@Override
+	public int updateBoardCount(SqlSession session, Integer boardNo) {
+		int result = session.update("ShareBoardMapper.updateBoardCount", boardNo);
+		return result;
+	}
+
+	@Override
 	public int deleteShareBoard(SqlSession session, int boardNo) {
 		int result = session.delete("ShareBoardMapper.deleteShareBoard", boardNo);
 		return result;

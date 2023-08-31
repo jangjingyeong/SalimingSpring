@@ -216,6 +216,7 @@ public class NoticeController {
 			, Model model) {
 		try {
 			Notice notice = service.selectNoticeByNo(noticeNo);
+			int result = service.updateViewCount(noticeNo);
 			if(notice != null) {
 				model.addAttribute("notice", notice);
 				return "help/detail";

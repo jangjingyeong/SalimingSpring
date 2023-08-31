@@ -34,6 +34,12 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
+	public int updateViewCount(int noticeNo) {
+		int result = nStore.updateViewCount(session, noticeNo);
+		return result;
+	}
+
+	@Override
 	public int deleteNotice(int noticeNo) {
 		int result = nStore.deleteNotice(session, noticeNo);
 		return result;
@@ -58,15 +64,15 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
-	public int getListCount(Map<String, String> paramMap) {
-		int result = nStore.getListCount(session, paramMap);
-		return result;
-	}
-
-	@Override
 	public List<Notice> searchNoticesByKeyword(PageInfo pInfo, Map<String, String> paramMap) {
 		List<Notice> searchList = nStore.searchNoticesByKeyword(session, pInfo, paramMap);
 		return searchList;
+	}
+
+	@Override
+	public int getListCount(Map<String, String> paramMap) {
+		int result = nStore.getListCount(session, paramMap);
+		return result;
 	}
 
 }

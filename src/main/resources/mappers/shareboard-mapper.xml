@@ -26,6 +26,10 @@
 		UPDATE SHAREBOARD_TBL SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_FILENAME = #{boardFilename}, BOARD_FILERENAME = #{boardFileRename}, BOARD_FILEPATH = #{boardFilepath}, BOARD_FILELENGTH = #{boardFilelength}, B_UPDATE_DATE = DEFAULT WHERE BOARD_NO = #{boardNo}
 	</update>
 	
+	<update id="updateBoardCount">
+		UPDATE SHAREBOARD_TBL SET BOARD_COUNT = BOARD_COUNT + 1 WHERE BOARD_NO = #{boardNo}
+	</update>
+	
 	<delete id="deleteShareBoard">
 		DELETE FROM SHAREBOARD_TBL WHERE BOARD_NO = #{boardNo}
 	</delete>

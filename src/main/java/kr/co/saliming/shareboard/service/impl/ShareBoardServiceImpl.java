@@ -34,6 +34,12 @@ public class ShareBoardServiceImpl implements ShareBoardService{
 	}
 
 	@Override
+	public int updateBoardCount(Integer boardNo) {
+		int result = sbStore.updateBoardCount(session, boardNo);
+		return result;
+	}
+
+	@Override
 	public int deleteShareBoard(int boardNo) {
 		int result = sbStore.deleteShareBoard(session, boardNo);
 		return result;
